@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./styles/registro.css">
+  </head>
+  <body>
+    <form class="register-form" action="">
+      <div class="register-form__body">
+        <div class="register-form__column">
+          <div class="register-form__field">
+            <label for="nombre"><p>Nombre:</p></label>
+            <input id="nombre" type="text" name="nombre" placeholder="Nombre" />
+          </div>
+          <div class="register-form__field">
+            <label for="apellido_paterno"><p>Apellido Paterno</p></label>
+            <input
+              id="apellido_paterno"
+              type="text"
+              name="apellido_paterno"
+              placeholder="Apellido Paterno"
+            />
+          </div>
+          <div class="register-form__field">
+            <label for="apellido_materno"><p>Apellido Materno</p></label>
+            <input
+              id="apellido_materno"
+              type="text"
+              name="apellido_materno"
+              placeholder="Apellido Materno"
+            />
+          </div>
+        </div>
+        <div class="register-form__column">
+          <div class="register-form__field">
+            <label for="email"><p>Correo:</p></label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="user@email.com"
+            />
+          </div>
+          <div class="register-form__field">
+            <label for="password"><p>Contraseña:</p></label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              placeholder="Password"
+            />
+          </div>
+          <div class="register-form__field">
+            <label for="password_confirmation"><p>Confirmar contraseña:</p></label>
+            <input
+              id="password_confirmation"
+              type="password"
+              name="password_confirmation"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="roles">
+        <p>Rol:</p>
+        <div>
+          <input type="radio" id="cliente" name="role" value="Cliente" />
+          <label for="cliente">Cliente</label>  
+        </div>
+        <div>
+          <input type="radio" id="consultor" name="role" value="Consultor" />
+          <label for="consultor">Consultor</label>  
+        </div>
+        <div>
+          <input type="radio" id="admin" name="role" value="Administrador" />
+          <label for="admin">Administrador</label>
+        </div>
+        <div>
+          <input type="radio" id="oficinas" name="role" value="Oficinas" />
+          <label for="oficinas">Oficinas Generales</label>
+        </div>
+      </div>
+      <button class="register-form__action" type="submit">Confirmar</button>
+    </form>
+  </body>
+</html>

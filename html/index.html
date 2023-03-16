@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./styles/login.css">
+  </head>
+  <body>
+    <form class="login-form" action="">
+      <div class="login-form__field">
+        <label for="email"><p>Correo:</p></label>
+        <input type="email" name="email" placeholder="user@email.com" />
+      </div>
+      <div class="login-form__field">
+        <label for="password"><p>Contraseña:</p></label>
+        <input type="password" name="password" placeholder="Password" />
+      </div>
+      <div class="login-form__buttons">
+        <button class="login-form__action" type="submit">Ingresar</button>
+        <a class="login-form__action" href="/registro.html">Registrarse</a>
+      </div>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./public/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./styles/proyectos.css">
+  </head>
+  <body>
+    <form class="proyecto-form" action="">
+      <div class="proyecto-form__field">
+        <label for="project_id"><p>ID de proyecto:</p></label>
+        <input id="project_id" type="text" name="project_id" placeholder="ID proyecto" />
+      </div>
+      <div class="proyecto-form__field">
+        <label for="project_name"><p>Nombre del proyecto:</p></label>
+        <input id="project_name" type="text" name="project_name" placeholder="Nombre" />
+      </div>
+      <div class="proyecto-form__field">
+        <label for="cliente_id"><p>ID del cliente:</p></label>
+        <input id="cliente_id" type="text" name="cliente_id" placeholder="ID cliente" />
+      </div>
+      <div class="proyecto-form__field">
+        <label for="admin_id"><p>ID del administrador:</p></label>
+        <input id="admin_id" type="text" name="admin_id" placeholder="ID administrador" />
+      </div>
+      <div class="proyecto-form__field">
+        <label for="description"><p>Descripción del proyecto:</p></label>
+        <textarea id="description" type="text" name="description" rows="4"></textarea>
+      </div>
+      <div class="proyecto-form__buttons">
+        <button class="proyecto-form__action" type="submit">Confirmar</button>
+      </div>
+    </form>
+  </body>
+</html>

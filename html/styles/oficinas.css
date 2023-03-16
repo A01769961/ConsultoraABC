@@ -1,0 +1,30 @@
+.navigation {
+  padding: 5rem 1rem;
+  width: 100%;
+  max-width: 768px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navigation__item {
+  color: black;
+  background-color: buttonface;
+  text-align: center;
+  display: block;
+  width: 100%;
+  max-width: 20rem;
+  border: 2px solid var(--button-border);
+  border-radius: 5px;
+  padding: 1rem 2rem;
+}
+
+.navigation__item:hover {
+  background-color: darkgray;
+}
+
+.navigation__item:focus {
+  transform: scale(0.95);
+}
