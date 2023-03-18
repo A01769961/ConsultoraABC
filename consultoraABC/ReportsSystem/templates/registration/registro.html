@@ -1,0 +1,61 @@
+{% block content %}
+
+  {% load static %}    
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="./public/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Registro de Usuario</title>
+        <link rel="stylesheet" href="{% static 'styles/global.css' %}" />
+        <link rel="stylesheet" href="{% static 'styles/registro.css' %}">
+      </head>
+      <body>
+        {% if messages %}
+          <ul class="messages">
+              {% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+              {% endfor %}
+          </ul>
+        {% endif %}
+        <form class="register-form" method="POST">
+          {% csrf_token %}
+          <div class="register-form__body">
+            <div class="register-form__column">
+              <div class="register-form__field">
+                <label for="nombre"><p>Nombre:</p></label>
+                {{ form.name }}
+              </div>
+              <div class="register-form__field">
+                <label for="apellido_paterno"><p>Apellido Paterno</p></label>
+                {{ form.lastName }}
+              </div>
+              <div class="register-form__field">
+                <label for="apellido_materno"><p>Apellido Materno</p></label>
+                {{ form.momLastName }}
+              </div>
+            </div>
+            <div class="register-form__column">
+              <div class="register-form__field">
+                <label for="email"><p>Correo:</p></label>
+                {{ form.email }}
+              </div>
+              <div class="register-form__field">
+                <label for="password"><p>Contraseña:</p></label>
+                {{ form.password }}
+              </div>
+              
+            </div>
+          </div>
+          <div class="roles">
+            <p>Rol:</p>
+            <div>
+              {{ form.rol }}
+            </div>
+          </div>
+          <button class="register-form__action" type="submit">Confirmar</button>
+        </form>
+      </body>
+    </html>
+{% endblock %}

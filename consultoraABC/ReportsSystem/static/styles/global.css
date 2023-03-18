@@ -1,0 +1,20 @@
+:root {
+  --button-border: rgb(33, 33, 33);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(36, 86, 128);
+  color: white;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

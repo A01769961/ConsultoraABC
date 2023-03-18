@@ -1,0 +1,67 @@
+.consultores-form {
+  font-size: 1.2rem;
+  max-width: 768px;
+  margin: 0 auto;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem 1rem;
+}
+
+.consultores-form__field {
+  flex-shrink: none;
+  width: 100%;
+  max-width: 30rem;
+}
+
+.consultores-form__field input {
+  margin: 0.5rem 0 0 0;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+}
+
+.consultores-form__field textarea {
+  margin: 0.5rem 0 0 0;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+}
+
+.consultores-form__buttons {
+  justify-content: center;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  gap: 0.5rem;
+}
+
+.consultores-form__action {
+  color: black;
+  cursor: pointer;
+  width: 100%;
+  max-width: 10rem;
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
+  background-color: buttonface;
+  border: 2px solid var(--button-border);
+  border-radius: 5px;
+}
+
+.consultores-form__action:hover {
+  background-color: darkgray;
+}
+
+.consultores-form__action:focus {
+  transform: scale(0.95);
+}
+
+.register:hover {
+  transform: scale(1.05);
+}
