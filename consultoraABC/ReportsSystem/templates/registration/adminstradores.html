@@ -1,0 +1,27 @@
+{% block content %} 
+  {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="./public/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vite App</title>
+        <link rel="stylesheet" href="{% static 'styles/global.css' %}" />
+        <link rel="stylesheet" href="{% static 'styles/oficinas.css' %}" />
+      </head>
+      <body>
+        <div class="navigation">
+          <a class="navigation__item" href="./reportes_proyecto.html"
+            >Reportes por proyecto</a
+          >
+          <a class="navigation__item" href="./reportes_consultor.html"
+            >Reportes por consultor</a
+          >
+          <a class="navigation__item" href="./reportes_proyecto.html"
+            >Evaluación de actividades</a
+          >
+        </div>
+      </body>
+    </html>
+{% endblock %}

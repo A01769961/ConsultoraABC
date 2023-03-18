@@ -111,7 +111,7 @@ def clientesMain(request):
     #     return render(request, "census/home.html")
 
     # return redirect("consultores")
-    return render(request, "registration/verificacion_reporte.html")
+    return render(request, "registration/clientes.html")
 
 
 def administradoresMain(request):
@@ -122,7 +122,7 @@ def administradoresMain(request):
     #     return render(request, "census/home.html")
 
     # return redirect("consultores")
-    return render(request, "registration/verificacion_reporte.html")
+    return render(request, "registration/adminstradores.html")
 
 
 def signupU(request):
