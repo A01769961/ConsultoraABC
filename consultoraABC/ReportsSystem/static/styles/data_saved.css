@@ -1,0 +1,9 @@
+.grid{
+  font-size: 5rem;
+  text-align: center;
+  height: 100%;
+  min-height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
