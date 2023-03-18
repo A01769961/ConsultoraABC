@@ -17,47 +17,57 @@ import shortuuid
 
 from .forms import *
 from .models import *
-#https://learndjango.com/tutorials/django-custom-user-model
 
-def home(request,*args, **kwargs):
+# https://learndjango.com/tutorials/django-custom-user-model
+
+
+def home(request, *args, **kwargs):
     print(request)
     # return render(request, "registration/login.html")
     # #return HttpResponse("<h1>Hello World</h1>")
     # if request.user.is_authenticated:
     #     return render(request, "census/home.html")
-    
+
     return redirect("login")
 
 
 def login(request):
 
     loginForm = LoginForm()
-    context = {
-        "form": loginForm
-    }
+    context = {"form": loginForm}
 
     if request.method == "POST":
 
         loginForm = LoginForm(request.POST)
-        context = {
-            "form": loginForm
-        }
+        context = {"form": loginForm}
 
         if loginForm.is_valid():
             print("Valid")
             print(request.POST)
             data = loginForm.cleaned_data
-            userMail = data["correo"] 
-            contrasenia = data["password"] 
+            userMail = data["correo"]
+            contrasenia = data["password"]
             print(userMail)
             print(contrasenia)
-            
-            Umail = usuario.objects.filter(mail = userMail, contrasenia=contrasenia)
-            
+
+            Umail = usuario.objects.filter(mail=userMail, contrasenia=contrasenia)
+
             if Umail.exists():
-                uData = usuario.objects.filter(mail = userMail)
+                uData = usuario.objects.filter(mail=userMail)
+                user = uData[0]
+                print(user.rol)
                 print(uData[0])
                 print("logs in")
+
+                if user.rol == "ADM":
+                    return redirect("administradores")
+                elif user.rol == "CON":
+                    return redirect("consultores")
+                elif user.rol == "CLI":
+                    return redirect("clientes")
+                elif user.rol == "OFG":
+                    return redirect("oficinas")
+
                 return redirect("consultores")
             else:
                 print("not log in")
@@ -69,7 +79,7 @@ def login(request):
             return render(request, "registration/login.html", context)
     else:
         return render(request, "registration/login.html", context)
-    
+
 
 def consultoresMain(request):
     print(request)
@@ -77,9 +87,10 @@ def consultoresMain(request):
     # #return HttpResponse("<h1>Hello World</h1>")
     # if request.user.is_authenticated:
     #     return render(request, "census/home.html")
-    
-    #return redirect("consultores")
+
+    # return redirect("consultores")
     return render(request, "registration/consultores.html")
+
 
 def oficinasMain(request):
     print(request)
@@ -87,9 +98,31 @@ def oficinasMain(request):
     # #return HttpResponse("<h1>Hello World</h1>")
     # if request.user.is_authenticated:
     #     return render(request, "census/home.html")
-    
-    #return redirect("consultores")
-    return render(request, "registration/consultores.html")
+
+    # return redirect("consultores")
+    return render(request, "registration/oficinas.html")
+
+
+def clientesMain(request):
+    print(request)
+    # return render(request, "registration/login.html")
+    # #return HttpResponse("<h1>Hello World</h1>")
+    # if request.user.is_authenticated:
+    #     return render(request, "census/home.html")
+
+    # return redirect("consultores")
+    return render(request, "registration/verificacion_reporte.html")
+
+
+def administradoresMain(request):
+    print(request)
+    # return render(request, "registration/login.html")
+    # #return HttpResponse("<h1>Hello World</h1>")
+    # if request.user.is_authenticated:
+    #     return render(request, "census/home.html")
+
+    # return redirect("consultores")
+    return render(request, "registration/verificacion_reporte.html")
 
 
 def signupU(request):
@@ -99,22 +132,17 @@ def signupU(request):
     if request.method == "POST":
         print("enter post")
         signup_form = signup(request.POST)
-        context = {
-            "title": "Registro de usuarios",
-            "form": signup_form
-        }
+        context = {"title": "Registro de usuarios", "form": signup_form}
 
         if signup_form.is_valid():
             print("FORM VALID!")
 
             data = signup_form.cleaned_data
 
-            
-            
-            print("data:\n",data)
+            print("data:\n", data)
             m = data["email"]
-            #print(usuario.objects.filter(mail="a01360000@tec.mx"))
-            if User.objects.filter(email = data['email']).exists():
+            # print(usuario.objects.filter(mail="a01360000@tec.mx"))
+            if User.objects.filter(email=data["email"]).exists():
                 print("Mail existe")
                 messages.error(request, "Este correo ya fue usado")
             else:
@@ -123,33 +151,28 @@ def signupU(request):
                     print("create success")
 
                     usuario.objects.create(
-                        #id = unique_id(8),
-                        name = data["name"],
-                        PlastName = data["lastName"],
-                        MLastName = data["momLastName"],
-                        mail = data["email"],
-                        contrasenia = data["password"],
-                        rol = data["rol"],
+                        # id = unique_id(8),
+                        name=data["name"],
+                        PlastName=data["lastName"],
+                        MLastName=data["momLastName"],
+                        mail=data["email"],
+                        contrasenia=data["password"],
+                        rol=data["rol"],
                     )
-                    
+
                     messages.success(request, "Datos guardados correctamente")
 
                     return redirect("login")
-            
+
                 except:
                     print("creare failed")
                     messages.error(request, "Error al guardar los datos")
-            
-            
-    
+
         return render(request, "registration/registro.html", context)
-    
+
     else:
         print("no post")
         signup_form = signup()
-        context = {
-            "title": "Registro de Usuarios",
-            "form": signup_form
-        }
+        context = {"title": "Registro de Usuarios", "form": signup_form}
 
         return render(request, "registration/registro.html", context)

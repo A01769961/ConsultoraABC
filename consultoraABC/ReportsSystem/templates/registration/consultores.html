@@ -1,50 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./public/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <link rel="stylesheet" href="./styles/global.css" />
-    <link rel="stylesheet" href="./styles/consultores.css" />
-  </head>
-  <body>
-    <form class="consultores-form" action="">
-      <div>
-        <p>Proyecto actual: <span>A0XXXXXXX</span></p>
-      </div>
-      <div class="consultores-form__field">
-        <label for="asignaion_id"><p>Asignacion actual:</p></label>
-        <input
-          id="asignaion_id"
-          type="text"
-          name="asignaion_id"
-          placeholder="ID Asignacion"
-        />
-      </div>
-      <div class="consultores-form__field">
-        <label for="asignacion_time"><p>Tiempo asignacion en horas:</p></label>
-        <input
-          id="asignacion_time"
-          type="number"
-          name="asignacion_time"
-          placeholder="Tiempo en horas"
-        />
-      </div>
-      <div class="consultores-form__field">
-        <label for="description"><p>Descripción del consultores:</p></label>
-        <textarea
-          id="description"
-          type="text"
-          name="description"
-          rows="4"
-        ></textarea>
-      </div>
-      <div class="consultores-form__buttons">
-        <button class="consultores-form__action" type="submit">
-          Confirmar
-        </button>
-      </div>
-    </form>
-  </body>
-</html>
+{% block content %} 
+
+  {% load static %}
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <link rel="icon" type="image/svg+xml" href="./public/vite.svg" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Vite App</title>
+      <link rel="stylesheet" href="{% static 'styles/global.css' %}" />
+      <link rel="stylesheet" href="{% static 'styles/consultores.css' %}" />
+    </head>
+    <body>
+      <form class="consultores-form" action="">
+        <div>
+          <p>Proyecto actual: <span>A0XXXXXXX</span></p>
+        </div>
+        <div class="consultores-form__field">
+          <label for="asignaion_id"><p>Asignacion actual:</p></label>
+          <input
+            id="asignaion_id"
+            type="text"
+            name="asignaion_id"
+            placeholder="ID Asignacion"
+          />
+        </div>
+        <div class="consultores-form__field">
+          <label for="asignacion_time"><p>Tiempo asignacion en horas:</p></label>
+          <input
+            id="asignacion_time"
+            type="number"
+            name="asignacion_time"
+            placeholder="Tiempo en horas"
+          />
+        </div>
+        <div class="consultores-form__field">
+          <label for="description"><p>Descripción del consultores:</p></label>
+          <textarea
+            id="description"
+            type="text"
+            name="description"
+            rows="4"
+          ></textarea>
+        </div>
+        <div class="consultores-form__buttons">
+          <button class="consultores-form__action" type="submit">
+            Confirmar
+          </button>
+        </div>
+      </form>
+    </body>
+  </html>
+{% endblock %}
